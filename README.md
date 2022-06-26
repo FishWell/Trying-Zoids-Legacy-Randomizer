@@ -5,3 +5,5 @@
 007A1FA8 - 007A2187 item shop 2 bytes length <br>
 007b9c28 - 007BE273 random enemy 16 * 6 bytes length separated by 4 bytes (17 00 00 00) <br>
 @ each zoids 16 bytes length (type color health 00 weapon(4 bytes) gold(4 bytes) exp(4bytes)) <br>
+
+Thanks
