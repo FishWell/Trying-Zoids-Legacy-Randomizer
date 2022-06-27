@@ -2,11 +2,24 @@
 # a
 # import mmap
 
-with open('zoids.gba','rb') as f:
+
+with open('test.gba','rb') as f, open('test','wb') as wf:
     A = f.read()
-    a = []
+    i,j = 0,0
     for addr in range(0x7b9c28, 0x7BE273):
-        a.append(A[addr])
-        if len(a)==8:
-            print('{:04x}:{:02x} {:02x} {:02x} {:02x} {:02x} {:02x} {:02x} {:02x}'.format(addr,a[0],a[1],a[2],a[3],a[4],a[5],a[6],a[7]))
-            a = []
+        # if len(a)==16:
+        #     print('{:04x}:{:02x} {:02x} {:02x} {:02x} {:02x} {:02x} {:02x} {:02x} {:02x} {:02x} {:02x} {:02x} {:02x} {:02x} {:02x} {:02x}'.format(addr,*a))
+        #     a = []
+        
+        if i % 100 == 0:
+            j = 0
+        if j % 16 == 0 and i % 100 != 96:
+            print('{:04x}:{:02x} {}:{}'.format(addr,A[addr],i,j))
+            wf.write(A[addr].to_bytes(1, byteorder='little'))
+        j += 1
+        i += 1
+
+    f.close()
+    wf.close()
+
+    
