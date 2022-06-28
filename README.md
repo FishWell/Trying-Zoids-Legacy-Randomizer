@@ -23,7 +23,7 @@ Put the zoids legacy .gba file in the same folder and rename it to `zoids.gba`. 
 0x7A21C0 - 0x7A233F weapon shop 2 bytes length <br>
 0x7A1FA8 - 0x7A2187 item shop 2 bytes length <br>
 0x7b9c28 - 0x7BE273 random enemy 16 * 6 bytes length separated by 4 bytes (17 00 00 00) <br> // i dont know what are those
-@ each zoids 16 bytes length (zoid(1 byte) color(1 byte) health(1 byte) healthbar(1 byte) weapon(4 bytes) exp(4 bytes) gold(4 bytes)) <br>
+@ each zoids 16 bytes length (zoid(1 byte) color(1 byte) pilot(1 byte) healthbar(1 byte) weapon(4 bytes) exp(4 bytes) gold(4 bytes)) <br>
 
 ## Credit
 Terimakasih kepada <b>mech_gouki</b> dan <b>mugenliger</b> dari <i>GameFaqs</i>
