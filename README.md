@@ -10,6 +10,8 @@ Put the zoids legacy .gba file in the same folder and rename it to `zoids.gba`. 
 - Random Battle exp and gold prize
 - Equipment Shop
 - Equipment Price
+- GUI (soon)
+- Setting (soon)
 - Zoids price (soon)
 - Cursed setting (soon)
 - Treasure chest (soon)
