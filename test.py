@@ -82,14 +82,20 @@ with open('randomized.gba','ab') as wf:
         p = []
         # print(limit)
         i = 0
-        while i < limit: #random parties
+        while i < limit + 10: #random parties
             if len(p) == 96:
                 p.append(23)
                 p.append(0)
                 p.append(0)
                 p.append(0)
                 break
-            r = randint(0,10)
+            r = choices(range(0,8),[2,3,5,4,3,3,1,2])[0]
+            if a > 30:
+               r = choices(range(0,9),[1,2,3,6,5,4,3,1,1])[0]
+            if a > 60:
+               r = choices(range(1,11),[2,2,3,5,5,4,4,3,3,2])[0]
+            if a > 120:
+               r = choices(range(3,11),[1,2,3,5,5,5,4,3])[0] 
             if limit < 11:
                 r = randint(1,limit)
                 z = 0
@@ -98,7 +104,7 @@ with open('randomized.gba','ab') as wf:
                 z = choices(zoids[r])[0]
             p.append(z) #choosing zoids
             p.append(randint(0,7)) #choosing colors
-            p.append(100) #health
+            p.append(randint(200,255)) #health
             p.append(0) #hidden health bar
             j = zcp[z]
             u = randint(101, 167)
