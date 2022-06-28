@@ -8,8 +8,13 @@ Put the zoids legacy .gba file in the same folder and rename it to `zoids.gba`. 
 ## Things that randomized
 - Random Battle enemy's zoids
 - Random Battle exp and gold prize
-- Equipment Shop (soon)
-- Equipment Price (soon)
+- Equipment Shop
+- Equipment Price
+- Zoids price (soon)
+- Cursed setting (soon)
+- Treasure chest (soon)
+- Hard randome setting (soon)
+- Starter pack (soon)
 
 ## Location
 0x7A2394 - 0x7A262F weapon shop price length 4 bytes <br>
