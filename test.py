@@ -2,7 +2,7 @@
 # pylint: disable=consider-using-f-string
 # pylint: disable=line-too-long
 from random import choices, randint, sample, shuffle
-from sys import byteorder
+
 zoids = [
     [0],
     [46,47,74,80,82,83,84,85,87,89,90,91,92,93,97,98,99,107],
@@ -45,6 +45,8 @@ ast5 = [
 ]
 
 wep = [*range(1,88),*range(101,129),*range(130,168)]
+
+plt = [*range(78,90),*range(98,101)]
 
 with open('zoids.gba','rb') as rf, open('randomized.gba','wb') as wf:
     A = rf.read()
@@ -104,7 +106,7 @@ with open('randomized.gba','ab') as wf:
                 z = choices(zoids[r])[0]
             p.append(z) #choosing zoids
             p.append(randint(0,7)) #choosing colors
-            p.append(choices(*range(78,90),*range(98,101))[0]) #pilot
+            p.append(choices(plt)[0]) #pilot
             p.append(0) #hidden health bar
             j = zcp[z]
             u = randint(101, 167)
