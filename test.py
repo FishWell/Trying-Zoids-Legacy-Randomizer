@@ -1,7 +1,8 @@
 # pylint: disable=missing-module-docstring
 # pylint: disable=consider-using-f-string
 # pylint: disable=line-too-long
-from random import choices, randint
+from random import choices, randint, sample, shuffle
+from sys import byteorder
 zoids = [
     [0],
     [46,47,74,80,82,83,84,85,87,89,90,91,92,93,97,98,99,107],
@@ -43,11 +44,38 @@ ast5 = [
     119,123,125,126,127,128,131,134,142,145,149,151,152,167
 ]
 
+wep = [*range(1,88),*range(101,129),*range(130,168)]
+
 with open('zoids.gba','rb') as rf, open('randomized.gba','wb') as wf:
     A = rf.read()
-    for addr in range(0x0,0x7b9c28):
+    for addr in range(0x0,0x7a21c0):
         wf.write(A[addr].to_bytes(1, byteorder='little'))
-      
+
+with open('randomized.gba','ab') as wf:
+    shop = [*sample(wep,40),*sample(wep,152)] #weapon shop item
+    for itm in shop:
+        wf.write(itm.to_bytes(1, byteorder='little'))
+        wf.write(0x00.to_bytes(1, byteorder='little'))
+
+with open('zoids.gba','rb') as rf, open('randomized.gba','ab') as wf:
+    A = rf.read()
+    for addr in range(0x7a2340,0x7a2394):
+        wf.write(A[addr].to_bytes(1, byteorder='little'))
+
+with open('randomized.gba','ab') as wf:
+    ww = []
+    for a in range(1, 168): #weapon shop price
+        pr = (eqp[a] + 1) * a * randint(1,500)
+        ww.append(pr - pr%100 + 100)
+    shuffle(ww)
+    for www in ww:
+        wf.write(www.to_bytes(4, byteorder='little'))
+
+with open('zoids.gba','rb') as rf, open('randomized.gba','ab') as wf:
+    A = rf.read()
+    for addr in range(0x7a2630,0x7b9c28):
+        wf.write(A[addr].to_bytes(1, byteorder='little'))
+
 with open('randomized.gba','ab') as wf:
     for a in range(1, 181): #random battles
         limit = a // 3 + 4
