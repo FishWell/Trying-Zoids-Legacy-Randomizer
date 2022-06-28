@@ -5,7 +5,7 @@ I know nothing about assembly, and this is technically my first python project e
 ## How to
 Put the zoids legacy .gba file in the same folder and rename it to `zoids.gba`. Run the `test.py`. The randomized file will be created in the same folder named `randomized.gba`
 
-## Things that randomized
+## Randomized list
 - Random Battle enemy's zoids
 - Random Battle exp and gold prize
 - Equipment Shop
