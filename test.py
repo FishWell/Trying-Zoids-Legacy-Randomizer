@@ -104,7 +104,7 @@ with open('randomized.gba','ab') as wf:
                 z = choices(zoids[r])[0]
             p.append(z) #choosing zoids
             p.append(randint(0,7)) #choosing colors
-            p.append(randint(200,255)) #health
+            p.append(choices(*range(78,90),*range(98,101))[0]) #pilot
             p.append(0) #hidden health bar
             j = zcp[z]
             u = randint(101, 167)
